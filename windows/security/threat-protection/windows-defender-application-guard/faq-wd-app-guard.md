@@ -31,7 +31,7 @@ Answering frequently asked questions about Windows Defender Application Guard (A
 | | |
 |---|----------------------------|
 |**Q:** |Can employees download documents from the Application Guard Edge session onto host devices?|
-|**A:** |It's not possible to download files from the isolated Application Guard container to the host PC. However, employees can use the **Print as PDF** or **Print as XPS** options and save those files to the host device.|
+|**A:** |In 1803, a policy was added to allow downloads onto the host operating system from the Application Guard container. In 1709, it's not possible to download files from the isolated Application Guard container to the host PC. However, employees can use the **Print as PDF** or **Print as XPS** options and save those files to the host device.|
 <br>
 
 | | |
