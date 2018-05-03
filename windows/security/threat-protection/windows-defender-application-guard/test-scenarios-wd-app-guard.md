@@ -12,10 +12,10 @@ ms.date: 10/19/2017
 
 # Testing scenarios using Windows Defender Application Guard in your business or organization
 
-**Applies to:**
-- Windows 10 Enterpise edition, version 1709
-
 We've come up with a list of suggested testing scenarios that you can use to test Windows Defender Application Guard (Application Guard) in your organization.
+
+**Applies to:**
+- Windows 10 Enterpise edition, version 1709 and higher
 
 ## Application Guard in standalone mode
 You can see how an employee would use standalone mode with Application Guard.
@@ -152,3 +152,30 @@ You have the option to change each of these settings to work with your enterpris
 
     >[!NOTE]
     >If you don't allow or turn off data persistence, restarting a device or logging in and out of the isolated container triggers a recycle event that discards all generated data, including session cookies, Favorites, and so on, removing the data from Application Guard. If you turn on data persistence, all employee-generated artifacts are preserved across container recycle events. However, these artifacts only exist in the isolated container and aren’t shared with the host PC. This data persists after restarts and even through build-to-build upgrades of Windows 10.<br><br>If you turn on data persistence, but later decide to stop supporting it for your employees, you can use our Windows-provided utility to reset the container and to discard any personal data.<br><br>**To reset the container:**<ol><li>Open a command-line program and navigate to Windows/System32.</li><li>Type `wdagtool.exe cleanup`.<br>The container environment is reset, retaining only the employee-generated data.</li><li>Type `wdagtool.exe cleanup RESET_PERSISTENCE_LAYER`.<br>The container environment is reset, including discarding all employee-generated data.</li></ol>
+    
+**To change the download options**
+1.	Go to the **Administrative Templates\System\Windows Components\Windows Defender Application Guard\Allow files to download and save to the host operating system from Windows Defender Application Guard** setting.
+
+2.	Click **Enabled**.
+
+    ![Group Policy editor Data Persistence options](images/appguard-gp-download.png)
+ 
+3.	Log out and back on to your device, opening Microsoft Edge in Application Guard again. 
+
+4.	Download a file from Windows Defender Application Guard. 
+
+5.  Check to see the file has been downloaded into This PC > Downloads > Untrusted files.
+
+**To change hardware acceleration options**
+1.	Go to the **Administrative Templates\System\Windows Components\Windows Defender Application Guard\Allow hardware-accelerated rendering for Windows Defender Application Guard** setting.
+
+2.	Click **Enabled**.
+
+    ![Group Policy editor Data Persistence options](images/appguard-gp-vgpu.png)
+ 
+3.	Contact Microsoft for further information to fully enable this setting. 
+
+4.	Once you have fully enabled this experimental feature, open Microsoft Edge and browse to an untrusted, but safe URL with video, 3D, or other graphics-intensive content. The website opens in an isolated session.  
+
+5.  Assess the visual experience and battery performance. 
+
